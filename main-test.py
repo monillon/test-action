@@ -1,5 +1,3 @@
-import pytest
-
 import monTest
 
 
@@ -8,7 +6,4 @@ def test_add():
     b = 10
     result = 15
     assert monTest.somme(a, b) == result
-
-
-
 
