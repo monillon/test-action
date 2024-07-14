@@ -47,12 +47,14 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag test-action
+
     - name: Build the Docker image
       run: docker save test-action -o ./test-action.tar
+
     - name: Artifact the docker image
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-action.tar
-          path: ./test-action.tar
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-action.tar
+        path: ./test-action.tar
 
 
