@@ -48,13 +48,16 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag test-action
 
-    - name: Build the Docker image
+    - name: Save the Docker image
       run: docker save test-action -o ./test-action.tar
+
+    - name: Zip the umage
+      run: zip ./test-action.tar.zip ./test-action.tar
 
     - name: Artifact the docker image
       uses: actions/upload-artifact@v4
       with:
         name: test-action.tar
-        path: ./test-action.tar
+        path: ./test-action.tar.zip
 
 
